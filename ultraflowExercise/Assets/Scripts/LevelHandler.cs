@@ -10,6 +10,13 @@ public class LevelHandler : MonoBehaviour
     
     [Range(1,20)]
     public int start_amount = 5;
+    private int level_completed = 0; /* Once we complete a level, this variable increases */
+    [Range(1,4)]
+    public int level_number = 0; /* This is the level number */
+    private bool completed = false; /* level completed */
+
+    
+
 
 	void Start () {
         if (player == null)
@@ -17,12 +24,29 @@ public class LevelHandler : MonoBehaviour
             Debug.LogError("LevelHandler: player is null. I kill myself");
             GameObject.Destroy(this.gameObject);
         }
-	}
+        else
+        {
+            Player p = player.GetComponent<Player>();
+            p.Amount = start_amount;
+        }
+    }
 	
 	
 	void Update () {
 	
 	}
+
+    /* Complete the level */
+    public void complete() {
+        if (!completed)
+        {
+            completed = true;
+            GameObject gc = GameObject.Find("GameController");
+            GameController game_controller = gc.GetComponent<GameController>() ?? null;
+            game_controller.Level_Completed = level_number;
+            /* TODO :: FEEDBACK VISUAL */
+        }
+    }
 
     /* Reset all elements of the level. */
     void reset() 
