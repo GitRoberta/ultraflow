@@ -1,21 +1,48 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerHandler: MonoBehaviour {
+[RequireComponent(typeof(Rigidbody2D))]
+public class Player : MonoBehaviour {
 
-    private Vector2 startPos;
-    private Vector2 direction;
-    private bool directionChosen;
-    private Vector3 dir;
-    private float velocity;
-
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
+    private Vector3 _velocity=new Vector3(0,1,0);
+    public Vector3 Velocity { get { return _velocity; } set { _velocity = value; } }
+    private Vector3 starting_position;
+    private int amount = 5;
+    private int starting_amount = 5;
+    public int Amount {
+        get { return amount; }
+        set
+        {
+            if (value >= 0) amount = value;
+        }
     }
+
+	
+	void Start () {
+        starting_amount = amount;
+        starting_position = this.transform.position;
+	}
+
+
+    void OnCollisionEnter2D(Collision2D coll) { }
+	
+	
+	void Update () {
+        if (amount == 0)
+            die();
+
+        transform.Translate(_velocity*Time.deltaTime);
+	}
+
+    void die() {
+        Debug.Log("So long!");
+        GameObject.Destroy(this.gameObject);
+    }
+
+    /* Reset amount and position */
+    public void reset() {
+        this.amount = starting_amount;
+        this.transform.position = starting_position;
+    }
+
 }
