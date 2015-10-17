@@ -4,9 +4,11 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour {
 
-    private Vector3 _velocity=new Vector3(0,1,0);
+    private Vector3 _velocity=new Vector3(0,0,0);
     public Vector3 Velocity { get { return _velocity; } set { _velocity = value; } }
-    private Vector3 starting_position;
+    public bool go;
+    public float initialSpeed;
+    public Vector3 starting_position;
     private int amount = 5;
     private int starting_amount = 5;
     public int Amount {
@@ -21,7 +23,9 @@ public class Player : MonoBehaviour {
 	void Start () {
         starting_amount = amount;
         starting_position = this.transform.position;
-	}
+        initialSpeed = 0.0f;
+        go = false;
+    }
 
 
     void OnCollisionEnter2D(Collision2D coll) { }
@@ -30,9 +34,11 @@ public class Player : MonoBehaviour {
 	void Update () {
         if (amount == 0)
             die();
-
-        transform.Translate(_velocity*Time.deltaTime);
-	}
+        if (go)
+        {
+            transform.Translate(_velocity * Time.deltaTime);
+        }
+        }
 
     void die() {
         Debug.Log("So long!");

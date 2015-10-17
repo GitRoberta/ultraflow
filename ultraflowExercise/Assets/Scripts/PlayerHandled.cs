@@ -7,20 +7,19 @@ public class PlayerHandled : MonoBehaviour
     private Vector2 startPos;
     private Vector2 direction;
     private bool directionChosen;
-    private Vector3 dir;
     private float velocity;
 
     // Use this for initialization
     void Start()
     {
-
+        velocity = 0.01f;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Track a single touch as a direction control.
-        if (Input.touchCount == 1)
+        if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 1)
         {
             var touch = Input.GetTouch(0);
             // Handle finger movements based on touch phase.
@@ -36,7 +35,7 @@ public class PlayerHandled : MonoBehaviour
                 // Determine direction by comparing the current touch position with the initial one.
                 case TouchPhase.Moved:
                     direction = touch.position - startPos;
-                    velocity = (touch.deltaPosition.magnitude / Time.deltaTime) * 0.001f;
+                    velocity = (touch.deltaPosition.magnitude / Time.deltaTime) * 0.007f;
                     Debug.Log("Moved");
                     break;
 
@@ -52,9 +51,7 @@ public class PlayerHandled : MonoBehaviour
                     Debug.Log("Stationary");
                     if (touch.position.Equals(startPos))
                     {
-                        // velocity += (touch.deltaPosition.magnitude / Time.deltaTime);
                         direction = startPos;
-                        directionChosen = true;
                     }
                     else
                     {
@@ -64,25 +61,47 @@ public class PlayerHandled : MonoBehaviour
                     break;
             }
         }
+        if (Input.touchCount == 1  && Input.GetTouch(0).tapCount == 2) {
+            doubleTap();
+            reset();
+        }
+
         if (directionChosen)
         {
-            dir = new Vector3(direction.x, direction.y, 0);
-            transform.position += dir * velocity * Time.deltaTime;
-            Debug.Log("Velocity is:" + velocity);
+            Player p = GetComponent<Player>() ?? null;
+            if (p != null)
+            {
+                direction = direction / direction.magnitude;
+                p.Velocity = new Vector3(direction.x, direction.y,0)*velocity; 
+                p.go = true;
+                p.initialSpeed = velocity;
+                reset();
+            }
         }
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
-
         if (collision.collider.tag == "Cube")
         {
-            Debug.Log("Colliso");
-            directionChosen = false;
-            velocity = 0.01f;
-            startPos = Vector2.zero;
-            direction = Vector2.zero;
-            dir = Vector3.zero;
+        }
+    }
+
+    void reset() {
+        directionChosen = false;
+        velocity = 0.01f;
+        startPos = Vector2.zero;
+        direction = Vector2.zero;
+    }
+
+    void doubleTap() {
+        Player p = GetComponent<Player>() ?? null;
+        if (p != null)
+        {   
+            transform.position = p.starting_position;
+            p.go = false;
+            p.reset();
         }
     }
 }
