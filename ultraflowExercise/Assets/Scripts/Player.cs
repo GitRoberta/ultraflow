@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     public bool isControllable;
     /* Number of fragment emitted after the death*/
     public int fragment_number = 5;
+    /* Sprite that represents the single amount (amount <10) */
+    public GameObject single_amount_sprite;
+    /* Sprite that represents the half-score of the amount (amount >=10)*/
+    public GameObject half_score_amount;
+    /* Sprite that represents the unity of the amount */
+    public GameObject unity_score_amount;
 
     public Text amounText;
 
@@ -80,28 +86,31 @@ public class Player : MonoBehaviour
         }
     }
 
+    /* Change the displayed amount of the player */
     void changeSprite(int amount)
     {
-
-        SpriteRenderer[] spr = GameObject.Find("Player").GetComponentsInChildren<SpriteRenderer>();
-        if(amount <= 9) {
+        SpriteRenderer sprite_render=null;
+        if(amount <= 9) 
+        {    
+            sprite_render=single_amount_sprite.GetComponent<SpriteRenderer>();
             Sprite newSprite = Resources.Load<Sprite>(amount.ToString());
             if (newSprite == null)
-                Debug.LogError("Error Load.");
-                spr[1].sprite = (Sprite) newSprite ;
-            spr[2] = spr[3] = null;
+                Debug.LogError("Error on loading the sprite.");
+            else
+                sprite_render.sprite = newSprite;
         }
 
-        if (amount > 9) {
+        if (amount > 9) 
+        {
             int unita, decina;
             decina=(int) amount / 10;
             unita = amount - decina * 10;
-            Debug.Log("Decina is" + decina + "Unita is" + unita);
             Sprite spriteDecina = Resources.Load<Sprite>(decina.ToString());
             Sprite spriteUnita = Resources.Load<Sprite>(unita.ToString());
-            spr[2].sprite = spriteDecina;
-            spr[3].sprite = spriteUnita;
-            spr[1] = null;
+            SpriteRenderer sprite_renderer= half_score_amount.GetComponent<SpriteRenderer>();
+            SpriteRenderer sprite_renderer_unity = unity_score_amount.GetComponent<SpriteRenderer>();
+            sprite_render.sprite = spriteDecina;
+            sprite_renderer_unity.sprite = spriteUnita;
         }
     }
     #endregion

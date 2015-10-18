@@ -809,7 +809,7 @@ MonoBehaviour:
   MovableObject: {fileID: 573073445}
   DestroyableObjects: {fileID: 1528153446}
   player: {fileID: 271312510}
-  start_amount: 5
+  start_amount: 8
   level_number: 1
 --- !u!4 &263851286
 Transform:

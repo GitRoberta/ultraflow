@@ -31,7 +31,7 @@ public class MenuController : MonoBehaviour {
             game_controller.change_level(scene);
     }
 
-    public void beganNewGame() {
+    public void beginNewGame() {
         Application.LoadLevel(1);
     }
 
