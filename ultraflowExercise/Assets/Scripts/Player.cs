@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private int amount = 13;
     private int starting_amount = 13;
     public bool isControllable;
+    /* Number of fragment emitted after the death*/
+    public int fragment_number = 5;
 
     public Text amounText;
 
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour
         Debug.Log("So long!");
         go = false;
         isControllable = true;
+        make_fragments();
     }
 
     /* Reset amount and position */
@@ -66,6 +69,15 @@ public class Player : MonoBehaviour
         this.transform.position = starting_position;
         isControllable = true;
         go = false;
+    }
+
+    #region EffectMethods
+
+    void make_fragments() {
+        for (int i = 0; i < fragment_number; i++)
+        {
+            Instantiate(Resources.Load("FragmentPlayer"),this.transform.position,this.transform.rotation);
+        }
     }
 
     void changeSprite(int amount)
@@ -92,5 +104,6 @@ public class Player : MonoBehaviour
             spr[1] = null;
         }
     }
+    #endregion
 
 }
