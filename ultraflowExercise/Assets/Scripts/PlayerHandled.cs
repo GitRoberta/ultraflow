@@ -29,20 +29,20 @@ public class PlayerHandled : MonoBehaviour
                 case TouchPhase.Began:
                     startPos = touch.position;
                     directionChosen = false;
-                    Debug.Log("Began");
+                    //Debug.Log("Began");
                     break;
 
                 // Determine direction by comparing the current touch position with the initial one.
                 case TouchPhase.Moved:
                     direction = touch.position - startPos;
                     velocity = (touch.deltaPosition.magnitude / Time.deltaTime) * 0.007f;
-                    Debug.Log("Moved");
+                    //Debug.Log("Moved");
                     break;
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
                     directionChosen = true;
-                    Debug.Log("Ended");
+                    //Debug.Log("Ended");
                     break;
 
                 //Caso in cui tocca lo schermo ma non si muove, viene impressa una velocità minima e inizia comunque
@@ -61,7 +61,8 @@ public class PlayerHandled : MonoBehaviour
                     break;
             }
         }
-        if (Input.touchCount == 1  && Input.GetTouch(0).tapCount == 2) {
+        if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 2)
+        {
             doubleTap();
             reset();
         }
@@ -72,7 +73,7 @@ public class PlayerHandled : MonoBehaviour
             if (p != null)
             {
                 direction = direction / direction.magnitude;
-                p.Velocity = new Vector3(direction.x, direction.y,0)*velocity; 
+                p.Velocity = new Vector3(direction.x, direction.y, 0) * velocity;
                 p.go = true;
                 p.initialSpeed = velocity;
                 reset();
@@ -88,17 +89,19 @@ public class PlayerHandled : MonoBehaviour
         }
     }
 
-    void reset() {
+    void reset()
+    {
         directionChosen = false;
         velocity = 0.01f;
         startPos = Vector2.zero;
         direction = Vector2.zero;
     }
 
-    void doubleTap() {
+    void doubleTap()
+    {
         Player p = GetComponent<Player>() ?? null;
         if (p != null)
-        {   
+        {
             transform.position = p.starting_position;
             p.go = false;
             p.reset();
