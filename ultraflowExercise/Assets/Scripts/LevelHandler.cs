@@ -15,20 +15,17 @@ public class LevelHandler : MonoBehaviour
     public int level_number = 0; /* This is the level number */
     private bool completed = false; /* level completed */
 
-    
-
 
 	void Start () {
-        if (player == null)
+        if (!is_valid())
         {
-            Debug.LogError("LevelHandler: player is null. I kill myself");
+            Debug.LogError("LevelHandler: player or winmenu is null. I kill myself");
             GameObject.Destroy(this.gameObject);
         }
-        else
-        {
-            Player p = player.GetComponent<Player>();
-            p.Amount = start_amount;
-        }
+        
+        Player p = player.GetComponent<Player>();
+        p.Amount = start_amount;
+       
     }
 	
 	
@@ -44,7 +41,6 @@ public class LevelHandler : MonoBehaviour
             GameObject gc = GameObject.Find("GameController");
             GameController game_controller = gc.GetComponent<GameController>() ?? null;
             game_controller.Level_Completed = level_number;
-            /* TODO :: FEEDBACK VISUAL */
             GameObject gh = GameObject.Find("GraphicHandler");
             GraphicHandler graphicHandler = gh.GetComponent<GraphicHandler>() ?? null;
             graphicHandler.setActiveButtonInUi();
@@ -68,5 +64,9 @@ public class LevelHandler : MonoBehaviour
         if(p!=null)
         p.reset();
     }
+
+   bool is_valid() {
+       return (player != null);
+   }
 
 }

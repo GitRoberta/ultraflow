@@ -11,7 +11,7 @@ public class GraphicHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-       win =  GameObject.Find("Win");
+        win =  GameObject.Find("Win");
         if (win != null)win.SetActive(false);
         else Debug.LogError("Errore, win don't found.");
        nextLevel = GameObject.Find("NextLevel");
@@ -21,12 +21,9 @@ public class GraphicHandler : MonoBehaviour {
         if (mainMenu != null) mainMenu.SetActive(false);
         else Debug.LogError("Errore,  mainMenu don't found.");
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
+
+   
     public void setActiveButtonInUi()
     {
        win.SetActive(true);
