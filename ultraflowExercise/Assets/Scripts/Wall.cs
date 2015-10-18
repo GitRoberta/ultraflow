@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(BoxCollider2D)),RequireComponent(typeof(SpriteRenderer)),RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Collider2D)),RequireComponent(typeof(SpriteRenderer)),RequireComponent(typeof(AudioSource))]
 public class Wall : MonoBehaviour
 {
 
