@@ -11,8 +11,8 @@ public class Player : MonoBehaviour
     public bool go;
     public float initialSpeed;
     public Vector3 starting_position;
-    private int amount = 5;
-    private int starting_amount = 5;
+    private int amount = 13;
+    private int starting_amount = 13;
     public bool isControllable;
 
     public Text amounText;
@@ -71,14 +71,25 @@ public class Player : MonoBehaviour
     void changeSprite(int amount)
     {
 
-        SpriteRenderer sprRenderer = GetComponent<Player>().GetComponentInChildren<SpriteRenderer>();
-        Sprite[] newSprite = Resources.LoadAll<Sprite>("numeri"); 
-        if (newSprite == null | newSprite.Length == 0) {
-            Debug.LogError("Error Load."); }
-        if (amount == 0)
-            sprRenderer.sprite = (Sprite)newSprite[9];
-        else {
-            sprRenderer.sprite = (Sprite)newSprite[amount -1];
+        SpriteRenderer[] spr = GameObject.Find("Player").GetComponentsInChildren<SpriteRenderer>();
+        if(amount <= 9) {
+            Sprite newSprite = Resources.Load<Sprite>(amount.ToString());
+            if (newSprite == null)
+                Debug.LogError("Error Load.");
+                spr[1].sprite = (Sprite) newSprite ;
+            spr[2] = spr[3] = null;
+        }
+
+        if (amount > 9) {
+            int unita, decina;
+            decina=(int) amount / 10;
+            unita = amount - decina * 10;
+            Debug.Log("Decina is" + decina + "Unita is" + unita);
+            Sprite spriteDecina = Resources.Load<Sprite>(decina.ToString());
+            Sprite spriteUnita = Resources.Load<Sprite>(unita.ToString());
+            spr[2].sprite = spriteDecina;
+            spr[3].sprite = spriteUnita;
+            spr[1] = null;
         }
     }
 

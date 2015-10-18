@@ -82,7 +82,6 @@ public class PlayerHandled : MonoBehaviour
 
    public void reset()
     {
-        Debug.Log("Reset playerHandled");
         directionChosen = false;
         velocity = 0.01f;
         startPos = Vector2.zero;
