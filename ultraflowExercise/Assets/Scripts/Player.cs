@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
             if (value >= 0)
             {
                 amount = value;
-                //amounText.text = value.ToString();
                 changeSprite(value);
             }
         }
@@ -37,7 +36,6 @@ public class Player : MonoBehaviour
         initialSpeed = 0.0f;
         go = false;
         starting_amount = amount;
-
     }
 
 
@@ -49,7 +47,9 @@ public class Player : MonoBehaviour
         if (amount == 0)
             die();
         if (go)
+        {
             transform.Translate(_velocity * Time.deltaTime);
+        }
     }
 
     void die()
@@ -69,8 +69,9 @@ public class Player : MonoBehaviour
     {
 
         SpriteRenderer sprRenderer = GetComponent<Player>().GetComponentInChildren<SpriteRenderer>();
-        Sprite[] newSprite = Resources.LoadAll<Sprite>("numeri"); // carico la sprite
-        if (newSprite == null | newSprite.Length == 0) { Debug.Log("Caricamento sprite fallito"); }
+        Sprite[] newSprite = Resources.LoadAll<Sprite>("numeri"); 
+        if (newSprite == null | newSprite.Length == 0) {
+            Debug.LogError("Error Load."); }      
         sprRenderer.sprite = (Sprite)newSprite[amount];
     }
 

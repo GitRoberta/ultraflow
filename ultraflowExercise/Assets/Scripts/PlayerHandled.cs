@@ -28,40 +28,35 @@ public class PlayerHandled : MonoBehaviour
                 // Record initial touch position.
                 case TouchPhase.Began:
                     startPos = touch.position;
-                    directionChosen = false;
-                    //Debug.Log("Began");
                     break;
 
                 // Determine direction by comparing the current touch position with the initial one.
                 case TouchPhase.Moved:
                     direction = touch.position - startPos;
                     velocity = (touch.deltaPosition.magnitude / Time.deltaTime) * 0.007f;
-                    //Debug.Log("Moved");
                     break;
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
                     directionChosen = true;
-                    //Debug.Log("Ended");
                     break;
 
                 //Caso in cui tocca lo schermo ma non si muove, viene impressa una velocità minima e inizia comunque
                 // il turno
-                case TouchPhase.Stationary:
-                    Debug.Log("Stationary");
-                    if (touch.position.Equals(startPos))
-                    {
-                        direction = startPos;
-                    }
-                    else
-                    {
-                        direction = touch.position - startPos;
-                    }
-                    directionChosen = true;
-                    break;
+                //case TouchPhase.Stationary:
+                    //Debug.Log("Stationary");
+                    //if (touch.position.Equals(startPos))
+                    //{
+                    //    direction = startPos;
+                    //}
+                    //else
+                    //{
+                    //    direction = touch.position - startPos;
+                    //}
+                    //directionChosen = true;
+                    //break;
             }
-        }
-        if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 2)
+        }else if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 2)
         {
             doubleTap();
             reset();
@@ -72,8 +67,9 @@ public class PlayerHandled : MonoBehaviour
             Player p = GetComponent<Player>() ?? null;
             if (p != null)
             {
-                direction = direction / direction.magnitude;
-                p.Velocity = new Vector3(direction.x, direction.y, 0) * velocity;
+                var distance = direction.magnitude; // 
+                var dir = direction / distance; // non mettere queste 2 funzioni insieme non si capisce perchè sballa con codice in unica riga
+                p.Velocity = new Vector3(dir.x, dir.y, 0)* velocity;
                 p.go = true;
                 p.initialSpeed = velocity;
                 reset();
