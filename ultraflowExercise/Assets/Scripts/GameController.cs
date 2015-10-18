@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
     }
 
     /* Passing the int for the scene index */
-    void change_level(int scene) {
+    public void change_level(int scene) {
         Application.LoadLevel(scene);
     }
 	
