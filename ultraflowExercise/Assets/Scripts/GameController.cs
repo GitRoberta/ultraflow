@@ -14,9 +14,10 @@ public class GameController : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
-	void Start () {
-	    
-	}
+    /* Passing the int for the scene index */
+    public void change_level(int scene) {
+        Application.LoadLevel(scene);
+    }
 	
 	
 }
