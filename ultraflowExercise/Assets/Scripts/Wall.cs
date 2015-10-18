@@ -19,6 +19,8 @@ public class Wall : MonoBehaviour
     public int break_counts = 0; /* maximim number of player hit allowed. <1 is unbreakable */
     public Sprite[] wall_sprites; /* Sprite array of the wall. When hitted, change his sprite */
     public AudioSource hit_sound; /*Sound when hitted */
+    [Range(0,10)]
+    public int num_fragments = 5; /* Number of fragment emitted at every hit with the player */
 
     #endregion
 
@@ -68,10 +70,17 @@ public class Wall : MonoBehaviour
         if (breakable)
         {
             if (num_hits > break_counts)
+            {
                 explode();
+                make_fragments(5);
+            }
             else
+            { 
                 change_sprite();
+                make_fragments();
+            }   
         }
+        
     }
 
     /*Take the player script and change the number of amount */
@@ -106,6 +115,12 @@ public class Wall : MonoBehaviour
 
 
      #region EffectMethods
+
+    /* Create some fragment  */
+    void make_fragments(int addictional_fragments=0) {
+        for (int i = 0; i < (num_fragments + addictional_fragments); i++)
+        { GameObject.Instantiate(Resources.Load("Fragment"), transform.position, transform.rotation); } 
+    }
 
      /* Change sprite, depending number of the hit */
      void change_sprite() {
