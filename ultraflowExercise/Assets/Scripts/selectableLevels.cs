@@ -14,13 +14,11 @@ public class selectableLevels : MonoBehaviour {
         if (game_controller == null)
             Debug.LogError("GameController is null! Nothing can work!");
         unlockedLevels = game_controller.Level_Completed;
-        for (int i = 0; i <= unlockedLevels; i++) {
-            level[i].interactable = true;
+        //Operatore ternario
+        for (int i = 0; i < level.Length; i++) {
+            level[i].interactable = (i < unlockedLevels) ;
         }
-        for (int i= unlockedLevels; i<level.Length; i++)
-        {
-            level[i].interactable = false;
-        }
+
     }
 	
 	// Update is called once per frame

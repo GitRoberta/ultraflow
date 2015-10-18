@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
-    private Vector3 _velocity = new Vector3(0, 0, 0);
+    private Vector3 _velocity = new Vector3(0, 1, 0);
     public Vector3 Velocity { get { return _velocity; } set { _velocity = value; } }
     public bool go;
     public float initialSpeed;
     public Vector3 starting_position;
     private int amount = 5;
     private int starting_amount = 5;
+    public bool isControllable;
 
     public Text amounText;
 
@@ -29,13 +30,13 @@ public class Player : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         starting_position = this.transform.position;
         initialSpeed = 0.0f;
         go = false;
         starting_amount = amount;
+        isControllable = true;
     }
 
 
@@ -47,22 +48,24 @@ public class Player : MonoBehaviour
         if (amount == 0)
             die();
         if (go)
-        {
             transform.Translate(_velocity * Time.deltaTime);
-        }
     }
 
-    void die()
-    {
+    void die(){
         Debug.Log("So long!");
-        GameObject.Destroy(this.gameObject);
+        go = false;
+        isControllable = true;
     }
 
     /* Reset amount and position */
     public void reset()
     {
+        Debug.Log("Reset Player");
         this.amount = starting_amount;
+        changeSprite(amount);
         this.transform.position = starting_position;
+        isControllable = true;
+        go = false;
     }
 
     void changeSprite(int amount)
@@ -71,8 +74,12 @@ public class Player : MonoBehaviour
         SpriteRenderer sprRenderer = GetComponent<Player>().GetComponentInChildren<SpriteRenderer>();
         Sprite[] newSprite = Resources.LoadAll<Sprite>("numeri"); 
         if (newSprite == null | newSprite.Length == 0) {
-            Debug.LogError("Error Load."); }      
-        sprRenderer.sprite = (Sprite)newSprite[amount];
+            Debug.LogError("Error Load."); }
+        if (amount == 0)
+            sprRenderer.sprite = (Sprite)newSprite[9];
+        else {
+            sprRenderer.sprite = (Sprite)newSprite[amount -1];
+        }
     }
 
 }

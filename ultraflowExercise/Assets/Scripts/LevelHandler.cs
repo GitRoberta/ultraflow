@@ -45,20 +45,27 @@ public class LevelHandler : MonoBehaviour
             GameController game_controller = gc.GetComponent<GameController>() ?? null;
             game_controller.Level_Completed = level_number;
             /* TODO :: FEEDBACK VISUAL */
+            GameObject gh = GameObject.Find("GraphicHandler");
+            GraphicHandler graphicHandler = gh.GetComponent<GraphicHandler>() ?? null;
+            graphicHandler.setActiveButtonInUi();
         }
     }
 
     /* Reset all elements of the level. */
-    void reset() 
+   public void reset() 
     {
-        Wall[] d_walls = DestroyableObjects.GetComponentsInChildren<Wall>(true);
-        foreach (Wall w in d_walls)
+        if (DestroyableObjects != null)
         {
-            if (!w.gameObject.activeSelf)
-                w.gameObject.SetActive(true);
-            w.reset();
+            Wall[] d_walls = DestroyableObjects.GetComponentsInChildren<Wall>(true);
+            foreach (Wall w in d_walls)
+            {
+                if (!w.gameObject.activeSelf)
+                    w.gameObject.SetActive(true);
+                w.reset();
+            }
         }
-        Player p = player.GetComponent<Player>();
+        Player p = FindObjectOfType<Player>();
+        if(p!=null)
         p.reset();
     }
 

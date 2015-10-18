@@ -3,13 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
-    
-    GameController game_controller;
+     GameController game_controller;
     private GameObject chooseLevel;
 
     bool valid=true;
 
     void Start() {
+        game_controller = GameObject.FindObjectOfType<GameController>();
         if (game_controller == null)
         {
             Debug.LogError("GameController is null! Nothing can work!");
