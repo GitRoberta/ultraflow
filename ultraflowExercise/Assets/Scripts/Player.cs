@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public GameObject half_score_amount;
     /* Sprite that represents the unity of the amount */
     public GameObject unity_score_amount;
+    /* this is the trail render of the player */
+    private TrailRenderer trail_renderer;
 
     public Text amounText;
 
@@ -45,6 +47,9 @@ public class Player : MonoBehaviour
         go = false;
         starting_amount = amount;
         isControllable = true;
+        trail_renderer = GetComponent<TrailRenderer>();
+        trail_renderer.sortingLayerName = "Objects";
+        trail_renderer.sortingOrder = 2;
     }
 
 

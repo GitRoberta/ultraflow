@@ -536,7 +536,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1001 &1066565991
 Prefab:
   m_ObjectHideFlags: 0
@@ -621,6 +621,10 @@ Prefab:
     - target: {fileID: 461214, guid: dbd1530a31edcd94292460894b380075, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447550, guid: dbd1530a31edcd94292460894b380075, type: 2}
+      propertyPath: speed_factor
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbd1530a31edcd94292460894b380075, type: 2}
@@ -818,7 +822,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1001 &1763191001
 Prefab:
   m_ObjectHideFlags: 0

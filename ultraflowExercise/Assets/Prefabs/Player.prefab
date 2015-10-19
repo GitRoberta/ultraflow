@@ -12,9 +12,9 @@ GameObject:
   - 114: {fileID: 11474540}
   - 114: {fileID: 11444154}
   - 58: {fileID: 5836340}
-  - 96: {fileID: 9660966}
   - 212: {fileID: 21255840}
   - 222: {fileID: 22249534}
+  - 96: {fileID: 9640522}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -135,7 +135,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .469999999
---- !u!96 &9660966
+--- !u!96 &9640522
 TrailRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -145,7 +145,7 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -160,8 +160,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 5
-  m_StartWidth: .100000001
-  m_EndWidth: .0500000007
+  m_StartWidth: .0299999993
+  m_EndWidth: .00999999978
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -233,7 +233,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1158283103
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -259,7 +259,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1158283103
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -285,7 +285,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1158283103
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -329,7 +329,7 @@ RectTransform:
   m_GameObject: {fileID: 127510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .579999983, y: .610000014, z: 1}
   m_Children:
   - {fileID: 448036}
   - {fileID: 482236}
@@ -338,7 +338,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: .0195061788, y: -2.93000007}
+  m_AnchoredPosition: {x: .0195061788, y: -2.9000001}
   m_SizeDelta: {x: .699999988, y: .699999988}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

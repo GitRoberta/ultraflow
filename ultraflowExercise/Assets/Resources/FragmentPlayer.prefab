@@ -37,10 +37,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 104860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f6efc239fb04114d943e073ce96de56, type: 3}
+  m_Script: {fileID: 11500000, guid: 582f4e06195a76b4788173ba93ad796e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start_speed: 5
+  start_speed: 3
   fragment_life: 3
 --- !u!212 &21274694
 SpriteRenderer:

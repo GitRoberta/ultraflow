@@ -561,7 +561,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22436366, guid: 8f8256ba3fbbf464e946226f135ba4d8, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 22436366, guid: 8f8256ba3fbbf464e946226f135ba4d8, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -569,7 +569,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22436366, guid: 8f8256ba3fbbf464e946226f135ba4d8, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -2.93000007
+      value: -2.9000001
       objectReference: {fileID: 0}
     - target: {fileID: 22436366, guid: 8f8256ba3fbbf464e946226f135ba4d8, type: 2}
       propertyPath: m_SizeDelta.x
@@ -915,7 +915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1001 &293530322
 Prefab:
   m_ObjectHideFlags: 0
@@ -1203,7 +1203,7 @@ Transform:
   - {fileID: 838203204}
   - {fileID: 1116807519}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &539628194
 Prefab:
   m_ObjectHideFlags: 0
@@ -2815,10 +2815,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 320, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
