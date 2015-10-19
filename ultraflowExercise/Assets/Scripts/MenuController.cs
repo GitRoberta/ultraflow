@@ -16,9 +16,9 @@ public class MenuController : MonoBehaviour {
             valid = false;
         }
 
-        chooseLevel = GameObject.Find("Continue");
-        if (chooseLevel== null) Debug.LogError("chooseLivel is null!");
-        else if (game_controller.Level_Completed >= 1) // Chiedere a Ciccio
+        chooseLevel = GameObject.Find("Load");
+        if (chooseLevel== null) Debug.LogError("Load is null!");
+        else if (game_controller.Level_Completed >= 1)
             chooseLevel.SetActive(true);
             else chooseLevel.SetActive(false);
 

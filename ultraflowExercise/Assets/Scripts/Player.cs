@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private Vector3 _velocity = new Vector3(0, 1, 0);
     public Vector3 Velocity { get { return _velocity; } set { _velocity = value; } }
     public bool go;
-    public float initialSpeed;
+    public float speed;
     public Vector3 starting_position;
     private int amount = 13;
     private int starting_amount = 13;
@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         starting_position = this.transform.position;
-        initialSpeed = 0.0f;
+        speed = 0.0f;
         go = false;
         starting_amount = amount;
         isControllable = true;
@@ -67,6 +67,9 @@ public class Player : MonoBehaviour
     void die(){
         Debug.Log("So long!");
         go = false;
+        SpriteRenderer sprite_render = this.gameObject.GetComponent<SpriteRenderer>() ?? null;
+        if (sprite_render != null)
+            sprite_render.enabled = false;
         isControllable = true;
         make_fragments();
     }
@@ -78,6 +81,9 @@ public class Player : MonoBehaviour
         this.amount = starting_amount;
         changeSprite(amount);
         this.transform.position = starting_position;
+        SpriteRenderer sprite_render = this.gameObject.GetComponent<SpriteRenderer>() ?? null;
+        if (sprite_render != null)
+            sprite_render.enabled = true;
         isControllable = true;
         go = false;
     }

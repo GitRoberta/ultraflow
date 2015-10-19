@@ -23,15 +23,15 @@ public class PlayerHandled : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        velocity = 0.01f;
+        velocity = 0.001f;
         p = GameObject.FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Track a single touch as a direction control.
-        if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 1 && p.isControllable)
+            // Track a single touch as a direction control.
+            if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 1 && p.isControllable)
         {
             var touch = Input.GetTouch(0);
             // Handle finger movements based on touch phase.
@@ -45,7 +45,7 @@ public class PlayerHandled : MonoBehaviour
                 // Determine direction by comparing the current touch position with the initial one.
                 case TouchPhase.Moved:
                     direction = touch.position - startPos;
-                    velocity = (touch.deltaPosition.magnitude / Time.deltaTime) * 0.007f;
+                    velocity = (touch.deltaPosition.magnitude / Time.deltaTime) * 0.008f;
                     if (!areaControl) {
                         p.isControllable = false;
                         directionChosen = true;
@@ -54,8 +54,17 @@ public class PlayerHandled : MonoBehaviour
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
-                    directionChosen = true;
-                    p.isControllable = false;
+                    if (!direction.Equals(Vector2.zero)) {
+                        Debug.Log("Velocity is:" + velocity);
+                        if (velocity < 1.5f) velocity = 2.0f;
+                        directionChosen = true;
+                        p.isControllable = false;
+                    } else
+                    {
+                        Debug.Log("Direction is zero non mi muovo");
+                        reset();
+                    }
+                        
                     break;
             }
         }else if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 2)
@@ -73,7 +82,7 @@ public class PlayerHandled : MonoBehaviour
                 var dir = direction / distance; 
                 p.Velocity = new Vector3(dir.x, dir.y, 0)* velocity;
                 p.go = true;
-                p.initialSpeed = velocity;
+                p.speed = velocity;
                 reset();
             }
         }
@@ -83,7 +92,7 @@ public class PlayerHandled : MonoBehaviour
    public void reset()
     {
         directionChosen = false;
-        velocity = 0.01f;
+        velocity = 0.001f;
         startPos = Vector2.zero;
         direction = Vector2.zero;
         areaControl = true;

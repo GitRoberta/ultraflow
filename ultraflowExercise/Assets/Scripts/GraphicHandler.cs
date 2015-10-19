@@ -8,7 +8,6 @@ public class GraphicHandler : MonoBehaviour {
    private GameObject nextLevel;
 
 
-
 	// Use this for initialization
 	void Start () {
         win =  GameObject.Find("Win");
@@ -17,6 +16,7 @@ public class GraphicHandler : MonoBehaviour {
        nextLevel = GameObject.Find("NextLevel");
         if (nextLevel != null) nextLevel.SetActive(false);
         else Debug.LogError("Errore, nextLevel don't found.");
+      
     }
 
 
