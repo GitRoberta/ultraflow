@@ -55,6 +55,15 @@ public class Wall : MonoBehaviour
         change_player_direction(col.gameObject,contact_point.normal);
     }
 
+    void OnCollisionStay2D(Collision2D col) {
+        if (!is_player(col)) return;
+        hit();
+        decrement_player_amount(col.gameObject);
+        /* TODO:: testing with multiple contact points */
+        ContactPoint2D contact_point = col.contacts[0];
+        change_player_direction(col.gameObject, contact_point.normal);
+    }
+
     #endregion
 
     #region UsefulMethods

@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     public GameObject unity_score_amount;
     /* this is the trail render of the player */
     private TrailRenderer trail_renderer;
+    /* already died? */
+    private bool died = false;
 
     public Text amounText;
 
@@ -65,13 +67,17 @@ public class Player : MonoBehaviour
     }
 
     void die(){
-        Debug.Log("So long!");
-        go = false;
-        SpriteRenderer sprite_render = this.gameObject.GetComponent<SpriteRenderer>() ?? null;
-        if (sprite_render != null)
-            sprite_render.enabled = false;
-        isControllable = true;
-        make_fragments();
+        if (!died)
+        {
+            Debug.Log("So long!");
+            go = false;
+            SpriteRenderer sprite_render = this.gameObject.GetComponent<SpriteRenderer>() ?? null;
+            if (sprite_render != null)
+                sprite_render.enabled = false;
+            isControllable = true;
+            make_fragments();
+            died = true;
+        }
     }
 
     /* Reset amount and position */
@@ -86,6 +92,7 @@ public class Player : MonoBehaviour
             sprite_render.enabled = true;
         isControllable = true;
         go = false;
+        died = false;
     }
 
     #region EffectMethods
