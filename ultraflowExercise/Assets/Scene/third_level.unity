@@ -304,7 +304,7 @@ Transform:
   - {fileID: 1884424888}
   - {fileID: 2073079685}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
 --- !u!1001 &768173081
 Prefab:
   m_ObjectHideFlags: 0
@@ -887,7 +887,7 @@ Prefab:
     - target: {fileID: 11416956, guid: e3309063c80d8ee4b8b1ad2440edf1da, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1940798946}
+      objectReference: {fileID: 0}
     - target: {fileID: 11416956, guid: e3309063c80d8ee4b8b1ad2440edf1da, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: change_level
@@ -1035,7 +1035,7 @@ Transform:
   - {fileID: 1866574940}
   - {fileID: 1571609975}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!4 &1866574940 stripped
 Transform:
   m_PrefabParentObject: {fileID: 483320, guid: 7b8eeba79701fdc4782f4ad8cfdf929e, type: 2}
@@ -1129,45 +1129,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!1 &1940798945
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1940798947}
-  - 114: {fileID: 1940798946}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1940798946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1940798945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33760603bad02c34b9c52d1fc1486027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1940798947
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1940798945}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0176743641, y: 1.58006763, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
 --- !u!4 &2061082030 stripped
 Transform:
   m_PrefabParentObject: {fileID: 464542, guid: 7b8eeba79701fdc4782f4ad8cfdf929e, type: 2}
@@ -1311,7 +1272,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1001 &2101842520
 Prefab:
   m_ObjectHideFlags: 0

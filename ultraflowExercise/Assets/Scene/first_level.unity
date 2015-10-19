@@ -627,7 +627,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1001 &293530322
 Prefab:
   m_ObjectHideFlags: 0
@@ -1140,7 +1140,7 @@ Prefab:
     - target: {fileID: 11416956, guid: e3309063c80d8ee4b8b1ad2440edf1da, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1304950410}
+      objectReference: {fileID: 0}
     - target: {fileID: 11416956, guid: e3309063c80d8ee4b8b1ad2440edf1da, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: change_level
@@ -1478,45 +1478,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 408142, guid: 03a701597ad58ba44825d4e98a773e6a, type: 2}
   m_PrefabInternal: {fileID: 1240507312}
---- !u!1 &1304950409
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1304950411}
-  - 114: {fileID: 1304950410}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1304950410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1304950409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33760603bad02c34b9c52d1fc1486027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1304950411
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1304950409}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.145707935, y: 1.59273243, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
 --- !u!1001 &1334983418
 Prefab:
   m_ObjectHideFlags: 0
@@ -2092,7 +2053,7 @@ Transform:
   m_LocalScale: {x: 2.6500001, y: 4.15999985, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &1950416672
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,7 +2127,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1001 &1986072183
 Prefab:
   m_ObjectHideFlags: 0

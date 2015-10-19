@@ -12,7 +12,7 @@ public class LevelHandler : MonoBehaviour
     public int start_amount = 5;
     private int level_completed = 0; /* Once we complete a level, this variable increases */
     [Range(1,4)]
-    public int level_number = 0; /* This is the level number */
+    public int level_number; /* This is the level number */
     private bool completed = false; /* level completed */
     public bool Completed {
         get { return completed; }
