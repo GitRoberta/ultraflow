@@ -14,7 +14,10 @@ public class LevelHandler : MonoBehaviour
     [Range(1,4)]
     public int level_number = 0; /* This is the level number */
     private bool completed = false; /* level completed */
-
+    public bool Completed {
+        get { return completed; }
+        set { completed = value; }
+    }
 
 	void Start () {
         if (!is_valid())

@@ -120,7 +120,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &5836340
 CircleCollider2D:
@@ -191,6 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba464ca361cd3841bba0324a2e32544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lh: {fileID: 0}
+  proxLevel: 0
 --- !u!114 &11474540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: 0
-  initialSpeed: 0
+  speed: 0
   starting_position: {x: 0, y: 0, z: 0}
   isControllable: 0
   fragment_number: 5
@@ -338,7 +340,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: .0195061788, y: -2.9000001}
+  m_AnchoredPosition: {x: .0195061788, y: -2.93000007}
   m_SizeDelta: {x: .699999988, y: .699999988}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

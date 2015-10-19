@@ -10,6 +10,8 @@ public class PlayerHandled : MonoBehaviour
     private float velocity;
     private Player p;
     private bool areaControl;
+    public LevelHandler lh;
+    public int proxLevel;
 
     public bool AreaControl
     {
@@ -31,7 +33,7 @@ public class PlayerHandled : MonoBehaviour
     void Update()
     {
             // Track a single touch as a direction control.
-            if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 1 && p.isControllable)
+        if (Input.touchCount == 1 && Input.GetTouch(0).tapCount == 1 && p.isControllable)
         {
             var touch = Input.GetTouch(0);
             // Handle finger movements based on touch phase.
@@ -85,6 +87,9 @@ public class PlayerHandled : MonoBehaviour
                 p.speed = velocity;
                 reset();
             }
+        }
+        if (lh.Completed && Input.touchCount == 1) {
+            Application.LoadLevel(proxLevel);
         }
 
     }

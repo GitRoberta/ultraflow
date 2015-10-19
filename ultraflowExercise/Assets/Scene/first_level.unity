@@ -384,6 +384,14 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11444154, guid: 8f8256ba3fbbf464e946226f135ba4d8, type: 2}
+      propertyPath: lh
+      value: 
+      objectReference: {fileID: 263851285}
+    - target: {fileID: 11444154, guid: 8f8256ba3fbbf464e946226f135ba4d8, type: 2}
+      propertyPath: proxLevel
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f8256ba3fbbf464e946226f135ba4d8, type: 2}
   m_IsPrefabParent: 0
@@ -875,7 +883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &484425758
 GameObject:
   m_ObjectHideFlags: 0
