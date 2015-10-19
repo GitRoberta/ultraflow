@@ -14,6 +14,17 @@ public class GameController : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
+    void Update() {
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Menu))
+        {
+            if (Application.loadedLevel >= 1)
+                Application.LoadLevel(0);
+            else Application.Quit();
+            return;
+        }
+    }
+
     /* Passing the int for the scene index */
     public void change_level(int scene) {
         Application.LoadLevel(scene);

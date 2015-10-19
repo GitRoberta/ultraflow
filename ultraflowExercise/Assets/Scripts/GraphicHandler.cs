@@ -6,7 +6,7 @@ public class GraphicHandler : MonoBehaviour {
 
    private GameObject win;
    private GameObject nextLevel;
-   private GameObject mainMenu;
+
 
 
 	// Use this for initialization
@@ -17,9 +17,6 @@ public class GraphicHandler : MonoBehaviour {
        nextLevel = GameObject.Find("NextLevel");
         if (nextLevel != null) nextLevel.SetActive(false);
         else Debug.LogError("Errore, nextLevel don't found.");
-        mainMenu =  GameObject.Find("Main Menu");
-        if (mainMenu != null) mainMenu.SetActive(false);
-        else Debug.LogError("Errore,  mainMenu don't found.");
     }
 
 
@@ -28,7 +25,6 @@ public class GraphicHandler : MonoBehaviour {
     {
        win.SetActive(true);
        nextLevel.SetActive(true);
-       mainMenu.SetActive(true);
     }
 
    public void nextLevelLoad(int level) {
